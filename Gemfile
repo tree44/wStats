@@ -7,7 +7,7 @@ gem 'rails'
 
 
 #gems used to view raw data of database
-gem 'activeadmin'
+gem "activeadmin", :git => "git://github.com/gregbell/active_admin.git"
 gem "meta_search", '>= 1.1.0.pre'
 #gems used to document activerecord (db)
 gem 'annotate', '>=2.5.0'
