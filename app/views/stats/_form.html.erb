@@ -1,0 +1,305 @@
+<%= form_for(@stat) do |f| %>
+  <% if @stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h2>
+
+      <ul>
+      <% @stat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Player %><br />
+    <%= f.text_field :Player %>
+  </div>
+  <div class="field">
+    <%= f.label :Position %><br />
+    <%= f.text_field :Position %>
+  </div>
+  <div class="field">
+    <%= f.label :a %><br />
+    <%= f.number_field :a %>
+  </div>
+  <div class="field">
+    <%= f.label :a_g %><br />
+    <%= f.text_field :a_g %>
+  </div>
+  <div class="field">
+    <%= f.label :bks %><br />
+    <%= f.number_field :bks %>
+  </div>
+  <div class="field">
+    <%= f.label :eng %><br />
+    <%= f.number_field :eng %>
+  </div>
+  <div class="field">
+    <%= f.label :es_toi %><br />
+    <%= f.number_field :es_toi %>
+  </div>
+  <div class="field">
+    <%= f.label :es_toi_g %><br />
+    <%= f.number_field :es_toi_g %>
+  </div>
+  <div class="field">
+    <%= f.label :esa %><br />
+    <%= f.number_field :esa %>
+  </div>
+  <div class="field">
+    <%= f.label :esfol %><br />
+    <%= f.number_field :esfol %>
+  </div>
+  <div class="field">
+    <%= f.label :esfow %><br />
+    <%= f.number_field :esfow %>
+  </div>
+  <div class="field">
+    <%= f.label :esg %><br />
+    <%= f.number_field :esg %>
+  </div>
+  <div class="field">
+    <%= f.label :esp %><br />
+    <%= f.number_field :esp %>
+  </div>
+  <div class="field">
+    <%= f.label :first_g %><br />
+    <%= f.number_field :first_g %>
+  </div>
+  <div class="field">
+    <%= f.label :fo_perc %><br />
+    <%= f.text_field :fo_perc %>
+  </div>
+  <div class="field">
+    <%= f.label :fo_total %><br />
+    <%= f.number_field :fo_total %>
+  </div>
+  <div class="field">
+    <%= f.label :fol %><br />
+    <%= f.number_field :fol %>
+  </div>
+  <div class="field">
+    <%= f.label :fow %><br />
+    <%= f.number_field :fow %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.number_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :g_g %><br />
+    <%= f.text_field :g_g %>
+  </div>
+  <div class="field">
+    <%= f.label :g_misc %><br />
+    <%= f.number_field :g_misc %>
+  </div>
+  <div class="field">
+    <%= f.label :gp %><br />
+    <%= f.number_field :gp %>
+  </div>
+  <div class="field">
+    <%= f.label :gva %><br />
+    <%= f.number_field :gva %>
+  </div>
+  <div class="field">
+    <%= f.label :gwg %><br />
+    <%= f.number_field :gwg %>
+  </div>
+  <div class="field">
+    <%= f.label :hits %><br />
+    <%= f.number_field :hits %>
+  </div>
+  <div class="field">
+    <%= f.label :major %><br />
+    <%= f.number_field :major %>
+  </div>
+  <div class="field">
+    <%= f.label :match_pen %><br />
+    <%= f.number_field :match_pen %>
+  </div>
+  <div class="field">
+    <%= f.label :minor %><br />
+    <%= f.number_field :minor %>
+  </div>
+  <div class="field">
+    <%= f.label :misc %><br />
+    <%= f.number_field :misc %>
+  </div>
+  <div class="field">
+    <%= f.label :mss %><br />
+    <%= f.number_field :mss %>
+  </div>
+  <div class="field">
+    <%= f.label :otg %><br />
+    <%= f.number_field :otg %>
+  </div>
+  <div class="field">
+    <%= f.label :p %><br />
+    <%= f.number_field :p %>
+  </div>
+  <div class="field">
+    <%= f.label :p_g %><br />
+    <%= f.text_field :p_g %>
+  </div>
+  <div class="field">
+    <%= f.label :pim %><br />
+    <%= f.number_field :pim %>
+  </div>
+  <div class="field">
+    <%= f.label :plus_minus %><br />
+    <%= f.number_field :plus_minus %>
+  </div>
+  <div class="field">
+    <%= f.label :pp_toi %><br />
+    <%= f.number_field :pp_toi %>
+  </div>
+  <div class="field">
+    <%= f.label :pp_toi_g %><br />
+    <%= f.number_field :pp_toi_g %>
+  </div>
+  <div class="field">
+    <%= f.label :ppa %><br />
+    <%= f.number_field :ppa %>
+  </div>
+  <div class="field">
+    <%= f.label :ppfol %><br />
+    <%= f.number_field :ppfol %>
+  </div>
+  <div class="field">
+    <%= f.label :ppfow %><br />
+    <%= f.number_field :ppfow %>
+  </div>
+  <div class="field">
+    <%= f.label :ppg %><br />
+    <%= f.number_field :ppg %>
+  </div>
+  <div class="field">
+    <%= f.label :ppp %><br />
+    <%= f.number_field :ppp %>
+  </div>
+  <div class="field">
+    <%= f.label :ps %><br />
+    <%= f.number_field :ps %>
+  </div>
+  <div class="field">
+    <%= f.label :s_g %><br />
+    <%= f.number_field :s_g %>
+  </div>
+  <div class="field">
+    <%= f.label :sft_g %><br />
+    <%= f.text_field :sft_g %>
+  </div>
+  <div class="field">
+    <%= f.label :sh_toi %><br />
+    <%= f.number_field :sh_toi %>
+  </div>
+  <div class="field">
+    <%= f.label :sh_toi_g %><br />
+    <%= f.number_field :sh_toi_g %>
+  </div>
+  <div class="field">
+    <%= f.label :sha %><br />
+    <%= f.number_field :sha %>
+  </div>
+  <div class="field">
+    <%= f.label :shfol %><br />
+    <%= f.number_field :shfol %>
+  </div>
+  <div class="field">
+    <%= f.label :shfow %><br />
+    <%= f.number_field :shfow %>
+  </div>
+  <div class="field">
+    <%= f.label :shg %><br />
+    <%= f.number_field :shg %>
+  </div>
+  <div class="field">
+    <%= f.label :shifts %><br />
+    <%= f.number_field :shifts %>
+  </div>
+  <div class="field">
+    <%= f.label :shot_perc %><br />
+    <%= f.text_field :shot_perc %>
+  </div>
+  <div class="field">
+    <%= f.label :shots %><br />
+    <%= f.number_field :shots %>
+  </div>
+  <div class="field">
+    <%= f.label :shp %><br />
+    <%= f.number_field :shp %>
+  </div>
+  <div class="field">
+    <%= f.label :tka %><br />
+    <%= f.number_field :tka %>
+  </div>
+  <div class="field">
+    <%= f.label :toi %><br />
+    <%= f.number_field :toi %>
+  </div>
+  <div class="field">
+    <%= f.label :toi_g %><br />
+    <%= f.number_field :toi_g %>
+  </div>
+  <div class="field">
+    <%= f.label :toi_s %><br />
+    <%= f.number_field :toi_s %>
+  </div>
+  <div class="field">
+    <%= f.label :total_so_g %><br />
+    <%= f.number_field :total_so_g %>
+  </div>
+  <div class="field">
+    <%= f.label :total_so_gdg %><br />
+    <%= f.number_field :total_so_gdg %>
+  </div>
+  <div class="field">
+    <%= f.label :total_so_s %><br />
+    <%= f.number_field :total_so_s %>
+  </div>
+  <div class="field">
+    <%= f.label :gs %><br />
+    <%= f.number_field :gs %>
+  </div>
+  <div class="field">
+    <%= f.label :w %><br />
+    <%= f.number_field :w %>
+  </div>
+  <div class="field">
+    <%= f.label :l %><br />
+    <%= f.number_field :l %>
+  </div>
+  <div class="field">
+    <%= f.label :ot %><br />
+    <%= f.number_field :ot %>
+  </div>
+  <div class="field">
+    <%= f.label :sa %><br />
+    <%= f.number_field :sa %>
+  </div>
+  <div class="field">
+    <%= f.label :ga %><br />
+    <%= f.number_field :ga %>
+  </div>
+  <div class="field">
+    <%= f.label :gaa %><br />
+    <%= f.text_field :gaa %>
+  </div>
+  <div class="field">
+    <%= f.label :sv %><br />
+    <%= f.number_field :sv %>
+  </div>
+  <div class="field">
+    <%= f.label :sv_perc %><br />
+    <%= f.text_field :sv_perc %>
+  </div>
+  <div class="field">
+    <%= f.label :so %><br />
+    <%= f.number_field :so %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

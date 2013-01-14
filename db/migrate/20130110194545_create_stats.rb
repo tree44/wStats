@@ -1,0 +1,80 @@
+class CreateStats < ActiveRecord::Migration
+  def change
+    create_table :stats do |t|
+      t.string :Player
+      t.string :Position
+      t.integer :a
+      t.decimal :a_g
+      t.integer :bks
+      t.integer :eng
+      t.integer :es_toi
+      t.integer :es_toi_g
+      t.integer :esa
+      t.integer :esfol
+      t.integer :esfow
+      t.integer :esg
+      t.integer :esp
+      t.integer :first_g
+      t.decimal :fo_perc
+      t.integer :fo_total
+      t.integer :fol
+      t.integer :fow
+      t.integer :g
+      t.decimal :g_g
+      t.integer :g_misc
+      t.integer :gp
+      t.integer :gva
+      t.integer :gwg
+      t.integer :hits
+      t.integer :major
+      t.integer :match_pen
+      t.integer :minor
+      t.integer :misc
+      t.integer :mss
+      t.integer :otg
+      t.integer :p
+      t.decimal :p_g
+      t.integer :pim
+      t.integer :plus_minus
+      t.integer :pp_toi
+      t.integer :pp_toi_g
+      t.integer :ppa
+      t.integer :ppfol
+      t.integer :ppfow
+      t.integer :ppg
+      t.integer :ppp
+      t.integer :ps
+      t.integer :s_g
+      t.decimal :sft_g
+      t.integer :sh_toi
+      t.integer :sh_toi_g
+      t.integer :sha
+      t.integer :shfol
+      t.integer :shfow
+      t.integer :shg
+      t.integer :shifts
+      t.decimal :shot_perc
+      t.integer :shots
+      t.integer :shp
+      t.integer :tka
+      t.integer :toi
+      t.integer :toi_g
+      t.integer :toi_s
+      t.integer :total_so_g
+      t.integer :total_so_gdg
+      t.integer :total_so_s
+      t.integer :gs
+      t.integer :w
+      t.integer :l
+      t.integer :ot
+      t.integer :sa
+      t.integer :ga
+      t.decimal :gaa
+      t.integer :sv
+      t.decimal :sv_perc
+      t.integer :so
+
+      t.timestamps
+    end
+  end
+end

@@ -1,0 +1,21 @@
+<h1>Listing nhls</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @nhls.each do |nhl| %>
+  <tr>
+    <td><%= link_to 'Show', nhl %></td>
+    <td><%= link_to 'Edit', edit_nhl_path(nhl) %></td>
+    <td><%= link_to 'Destroy', nhl, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Nhl', new_nhl_path %>

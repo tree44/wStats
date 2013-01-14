@@ -1,0 +1,165 @@
+<h1>Listing stats</h1>
+
+<table>
+  <tr>
+    <th>Player</th>
+    <th>Position</th>
+    <th>A</th>
+    <th>A g</th>
+    <th>Bks</th>
+    <th>Eng</th>
+    <th>Es toi</th>
+    <th>Es toi g</th>
+    <th>Esa</th>
+    <th>Esfol</th>
+    <th>Esfow</th>
+    <th>Esg</th>
+    <th>Esp</th>
+    <th>First g</th>
+    <th>Fo perc</th>
+    <th>Fo total</th>
+    <th>Fol</th>
+    <th>Fow</th>
+    <th>G</th>
+    <th>G g</th>
+    <th>G misc</th>
+    <th>Gp</th>
+    <th>Gva</th>
+    <th>Gwg</th>
+    <th>Hits</th>
+    <th>Major</th>
+    <th>Match pen</th>
+    <th>Minor</th>
+    <th>Misc</th>
+    <th>Mss</th>
+    <th>Otg</th>
+    <th>P</th>
+    <th>P g</th>
+    <th>Pim</th>
+    <th>Plus minus</th>
+    <th>Pp toi</th>
+    <th>Pp toi g</th>
+    <th>Ppa</th>
+    <th>Ppfol</th>
+    <th>Ppfow</th>
+    <th>Ppg</th>
+    <th>Ppp</th>
+    <th>Ps</th>
+    <th>S g</th>
+    <th>Sft g</th>
+    <th>Sh toi</th>
+    <th>Sh toi g</th>
+    <th>Sha</th>
+    <th>Shfol</th>
+    <th>Shfow</th>
+    <th>Shg</th>
+    <th>Shifts</th>
+    <th>Shot perc</th>
+    <th>Shots</th>
+    <th>Shp</th>
+    <th>Tka</th>
+    <th>Toi</th>
+    <th>Toi g</th>
+    <th>Toi s</th>
+    <th>Total so g</th>
+    <th>Total so gdg</th>
+    <th>Total so s</th>
+    <th>Gs</th>
+    <th>W</th>
+    <th>L</th>
+    <th>Ot</th>
+    <th>Sa</th>
+    <th>Ga</th>
+    <th>Gaa</th>
+    <th>Sv</th>
+    <th>Sv perc</th>
+    <th>So</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stats.each do |stat| %>
+  <tr>
+    <td><%= stat.Player %></td>
+    <td><%= stat.Position %></td>
+    <td><%= stat.a %></td>
+    <td><%= stat.a_g %></td>
+    <td><%= stat.bks %></td>
+    <td><%= stat.eng %></td>
+    <td><%= stat.es_toi %></td>
+    <td><%= stat.es_toi_g %></td>
+    <td><%= stat.esa %></td>
+    <td><%= stat.esfol %></td>
+    <td><%= stat.esfow %></td>
+    <td><%= stat.esg %></td>
+    <td><%= stat.esp %></td>
+    <td><%= stat.first_g %></td>
+    <td><%= stat.fo_perc %></td>
+    <td><%= stat.fo_total %></td>
+    <td><%= stat.fol %></td>
+    <td><%= stat.fow %></td>
+    <td><%= stat.g %></td>
+    <td><%= stat.g_g %></td>
+    <td><%= stat.g_misc %></td>
+    <td><%= stat.gp %></td>
+    <td><%= stat.gva %></td>
+    <td><%= stat.gwg %></td>
+    <td><%= stat.hits %></td>
+    <td><%= stat.major %></td>
+    <td><%= stat.match_pen %></td>
+    <td><%= stat.minor %></td>
+    <td><%= stat.misc %></td>
+    <td><%= stat.mss %></td>
+    <td><%= stat.otg %></td>
+    <td><%= stat.p %></td>
+    <td><%= stat.p_g %></td>
+    <td><%= stat.pim %></td>
+    <td><%= stat.plus_minus %></td>
+    <td><%= stat.pp_toi %></td>
+    <td><%= stat.pp_toi_g %></td>
+    <td><%= stat.ppa %></td>
+    <td><%= stat.ppfol %></td>
+    <td><%= stat.ppfow %></td>
+    <td><%= stat.ppg %></td>
+    <td><%= stat.ppp %></td>
+    <td><%= stat.ps %></td>
+    <td><%= stat.s_g %></td>
+    <td><%= stat.sft_g %></td>
+    <td><%= stat.sh_toi %></td>
+    <td><%= stat.sh_toi_g %></td>
+    <td><%= stat.sha %></td>
+    <td><%= stat.shfol %></td>
+    <td><%= stat.shfow %></td>
+    <td><%= stat.shg %></td>
+    <td><%= stat.shifts %></td>
+    <td><%= stat.shot_perc %></td>
+    <td><%= stat.shots %></td>
+    <td><%= stat.shp %></td>
+    <td><%= stat.tka %></td>
+    <td><%= stat.toi %></td>
+    <td><%= stat.toi_g %></td>
+    <td><%= stat.toi_s %></td>
+    <td><%= stat.total_so_g %></td>
+    <td><%= stat.total_so_gdg %></td>
+    <td><%= stat.total_so_s %></td>
+    <td><%= stat.gs %></td>
+    <td><%= stat.w %></td>
+    <td><%= stat.l %></td>
+    <td><%= stat.ot %></td>
+    <td><%= stat.sa %></td>
+    <td><%= stat.ga %></td>
+    <td><%= stat.gaa %></td>
+    <td><%= stat.sv %></td>
+    <td><%= stat.sv_perc %></td>
+    <td><%= stat.so %></td>
+    <td><%= link_to 'Show', stat %></td>
+    <td><%= link_to 'Edit', edit_stat_path(stat) %></td>
+    <td><%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Stat', new_stat_path %>
