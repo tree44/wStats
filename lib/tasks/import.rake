@@ -1,4 +1,5 @@
 #lib/tasks/import.rake
+#i.e. rake csv_model_import[myfile.csv,Stat]
 desc "Imports a CSV file into an ActiveRecord table"
 task :csv_model_import, [:filename, :model] => [:environment] do |task,args|
   lines = File.new(args[:filename]).readlines
