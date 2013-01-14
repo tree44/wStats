@@ -5,7 +5,6 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 
 #gems used to view raw data of database
 gem 'activeadmin'
@@ -25,6 +24,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'sqlite3'
+end
 group :production do
   gem 'pg'
 end
