@@ -62,7 +62,7 @@ ActiveAdmin.register Stat do
     	end
     end
 
-    config.per_page = 25
+    config.per_page = 50
     config.filters = false
 
     index do
@@ -73,8 +73,9 @@ ActiveAdmin.register Stat do
           column("player")
           column("position")
         end
+        column("gp")
 
-        #player columns
+        #player only columns
     	column("g") unless params['scope'] == 'goalie' 
     	column("a") unless params['scope'] == 'goalie'
     	column("p") unless params['scope'] == 'goalie'
@@ -83,13 +84,14 @@ ActiveAdmin.register Stat do
         column("+/-", :sortable => :plus_minus) { |stats| stats.plus_minus }  unless params['scope'] == 'goalie'
     	column("shots") unless params['scope'] == 'goalie'
 
-        #goalie columns
+        #goalie only columns
         column("w") if params['scope'] == 'goalie'
         column("ga") if params['scope'] == 'goalie'
         column("sv") if params['scope'] == 'goalie'
         column("so") if params['scope'] == 'goalie'
         
     	column("ftsy", :sortable => :user1) { |stats| stats.user1 }
+        column("ftsy2", :sortable => :user2) { |stats| number_with_precision(stats.user2, :precision => 2) }
         default_actions
     #index do
     #  column :Player
