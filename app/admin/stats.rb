@@ -1,5 +1,5 @@
 ActiveAdmin.register Stat do
-    actions :index
+    actions :index, :edit, :update, :create
     action_item do
         button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
     end
