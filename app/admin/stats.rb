@@ -6,28 +6,60 @@ ActiveAdmin.register Stat do
 
 
     #scope :all, :default => true
+    #.where clause are a bit different from sqlite3, to postgres
+    # table name must be lowercase and == is now only =
 
     scope :players, :default => true do |stats|
-        stats.where('Position == ? or Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW', 'D' )
+
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ? or Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW', 'D' )
+        else
+          stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
+        end
     end
+
     scope :goalie do |stats|
-        stats.where('Position == ?', 'G')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ?', 'G')
+        else
+          stats.where('position = ?', 'G')
+        end
     end
 
     scope :forwards, :default => true do |stats|
-        stats.where('Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ? or Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW', 'D' )
+        else
+          stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
+        end
     end
     scope :centers do |stats|
-    	stats.where('Position == ?', 'C')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ?', 'C')
+        else
+          stats.where('position = ?', 'C')
+    	end
     end
     scope :leftwing do |stats|
-    	stats.where('Position == ?', 'LW')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ?', 'LW')
+        else
+          stats.where('position = ?', 'LW')
+    	end
     end
     scope :rightwing do |stats|
-    	stats.where('Position == ?', 'RW')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ?', 'RW')
+        else
+          stats.where('position = ?', 'RW')
+    	end
     end
     scope :defense do |stats|
-    	stats.where('Position == ?', 'D')
+        if ENV['RAILS_ENV'] == "development"
+          stats.where('Position == ?', 'D')
+        else
+          stats.where('position = ?', 'D')
+    	end
     end
 
     config.per_page = 25
