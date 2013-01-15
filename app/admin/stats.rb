@@ -66,8 +66,13 @@ ActiveAdmin.register Stat do
     config.filters = false
 
     index do
-    	column("Player")
-    	column("Position")
+        if ENV['RAILS_ENV'] == "development"
+    	  column("Player")
+    	  column("Position") 
+        else
+          column("player")
+          column("position")
+        end
 
         #player columns
     	column("g") unless params['scope'] == 'goalie' 
