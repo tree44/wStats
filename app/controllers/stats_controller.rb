@@ -21,12 +21,22 @@ class StatsController < InheritedResources::Base
         @stats.each do |stats|
           #stats.update_attribute(:user1, (util.g * 3) + (util.a * 2))
           #column("FtsyPts") { |stats| (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)}
-  		  if stats.Position == 'G'
-			stats.user1 = (stats.w * 4) + (stats.ga * -1) + (stats.sv * 0.2) + (stats.so * 2)
-  		  else
-			stats.user1 = (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)
-  		  end
-          stats.save
+  		  if ENV['RAILS_ENV'] == "development"
+          if stats.Position == 'G'
+            stats.user1 = (stats.w * 4) + (stats.ga * -1) + (stats.sv * 0.2) + (stats.so * 2)
+          else
+            stats.user1 = (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)
+          end
+        else
+          if stats.position == 'G'
+            stats.user1 = (stats.w * 4) + (stats.ga * -1) + (stats.sv * 0.2) + (stats.so * 2)
+          else
+            stats.user1 = (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)
+          end
+        end
+			    
+
+        stats.save
         end
 
         flash[:success] = "Statistics Successfully updated!"
