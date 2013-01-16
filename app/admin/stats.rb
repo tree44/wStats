@@ -10,26 +10,31 @@ ActiveAdmin.register Stat do
         actions :index
     end
 
-    batch_action :togglepicked do |selection|
+    batch_action :togglepicked, :priority => 1 do |selection|
       Stat.find(selection).each do |stat|
         if stat.user3 == 0
             stat.user3 = 1
         else
-            stat.user3 =0
+            stat.user3 = 0
         end
 
         stat.save
 
-        if stat.user3 == 0
-            flash[:success] = "#{stat.player} not picked!"
-        else
-            flash[:success] = "#{stat.player} picked!"
-        end
-
-        redirect_to :back
       end
+      flash[:success] = "update picked!"
+      redirect_to :back
     end
 
+    batch_action :resetpicked do |selection|
+      Stat.find(selection).each do |stat|
+        if stat.user3 == 1
+          stat.user3 = 0
+          stat.save
+        end
+      end
+      flash[:success] = "all picked reset"
+      redirect_to :back
+    end
 
     #scope :all, :default => true
     #.where clause are a bit different from sqlite3, to postgres
