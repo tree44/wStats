@@ -6,12 +6,21 @@ class Ability
 
     Rails.logger.info "ability user: email - #{user.email} super - #{user.superadmin}"
 
-    #why is this 0/1 instead of false/true?
-    if user.superadmin == 1
-        can :manage, :all
+    #why is this 0/1 instead of false/true? sqlite3 diff from postgres, should convert boolean to integer?
+    if Rails.env.development?
+        if user.superadmin == 1
+            can :manage, :all
+        else
+            can :manage, Stat
+            cannot [:edit], Stat
+        end
     else
-        can :manage, Stat
-        cannot [:edit], Stat
+        if user.superadmin == true
+            can :manage, :all
+        else
+            can :manage, Stat
+            cannot [:edit], Stat
+        end
     end
     # Define abilities for the passed in user here. For example:
     #
