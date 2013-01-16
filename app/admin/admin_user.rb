@@ -1,9 +1,14 @@
-ActiveAdmin.register AdminUser do     
+ActiveAdmin.register AdminUser do 
+
+  menu :if => proc{ can?(:manage, AdminUser) }     
+  controller.authorize_resource 
+
   index do                            
     column :email                     
     column :current_sign_in_at        
     column :last_sign_in_at           
-    column :sign_in_count             
+    column :sign_in_count
+    column :superadmin, :as => :boolean            
     default_actions                   
   end                               
 
@@ -13,7 +18,8 @@ ActiveAdmin.register AdminUser do
     f.inputs "Admin Details" do       
       f.input :email                  
       f.input :password               
-      f.input :password_confirmation  
+      f.input :password_confirmation 
+      f.input :superadmin, :as => :boolean
     end                               
     f.actions                         
   end                                 

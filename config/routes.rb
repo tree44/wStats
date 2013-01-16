@@ -12,6 +12,7 @@ Test7::Application.routes.draw do
   match '/help',    to: 'static_pages#help'       #using match will automatically create help_path => '/help'
   match '/signup',  to: 'stats#new'
   match '/admin/stats/', to: 'stats#update'
+  match '/admin/stats/batch_action', to: 'stats#picked'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

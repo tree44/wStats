@@ -1,78 +1,66 @@
 ActiveAdmin.register Stat do
-    actions :index, :edit, :update, :create
-    action_item do
-        button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
+    
+    if Rails.env.development?
+        actions :index, :edit, :update, :create
+
+        action_item do
+            button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
+        end
+    else
+        actions :index
+    end
+
+    batch_action :togglepicked do |selection|
+      Stat.find(selection).each do |stat|
+        if stat.user3 == 0
+            stat.user3 = 1
+        else
+            stat.user3 =0
+        end
+
+        stat.save
+
+        if stat.user3 == 0
+            flash[:success] = "#{stat.player} not picked!"
+        else
+            flash[:success] = "#{stat.player} picked!"
+        end
+
+        redirect_to :back
+      end
     end
 
 
     #scope :all, :default => true
     #.where clause are a bit different from sqlite3, to postgres
     # table name must be lowercase and == is now only =
-
-    scope :players, :default => true do |stats|
-
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ? or Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW', 'D' )
-        else
-          stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
-        end
-    end
-
-    scope :goalie do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ?', 'G')
-        else
-          stats.where('position = ?', 'G')
-        end
-    end
-
     scope :forwards, :default => true do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ? or Position == ? or Position == ? or Position == ?', 'C', 'LW', 'RW', 'D' )
-        else
-          stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
-        end
+        stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
+    end
+    scope :goalie do |stats|
+        stats.where('position = ?', 'G')
     end
     scope :centers do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ?', 'C')
-        else
-          stats.where('position = ?', 'C')
-    	end
+        stats.where('position = ?', 'C')
     end
     scope :leftwing do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ?', 'LW')
-        else
-          stats.where('position = ?', 'LW')
-    	end
+        stats.where('position = ?', 'LW')
     end
     scope :rightwing do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ?', 'RW')
-        else
-          stats.where('position = ?', 'RW')
-    	end
+        stats.where('position = ?', 'RW')
     end
     scope :defense do |stats|
-        if ENV['RAILS_ENV'] == "development"
-          stats.where('Position == ?', 'D')
-        else
-          stats.where('position = ?', 'D')
-    	end
+        stats.where('position = ?', 'D')
     end
 
     config.per_page = 50
     config.filters = false
 
     index do
-        if ENV['RAILS_ENV'] == "development"
-    	  column("Player")
-    	  column("Position") 
-        else
-          column("player")
-          column("position")
-        end
+        selectable_column
+        column("player")
+        column("position")
+        column("picked", :sortable => :user3) { |stats| status_tag (stats.user3 == 0 ? "available" : "picked"), (stats.user3 == 0 ? :ok : :error)}
         column("gp")
 
         #player only columns
