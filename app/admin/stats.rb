@@ -1,13 +1,15 @@
 ActiveAdmin.register Stat do
     
     if Rails.env.development?
-        actions :index, :edit, :update, :create
-
-        action_item do
-            button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
-        end
+      actions :index, :edit, :update, :create
+      dllink = true
     else
-        actions :index
+      actions :index
+      dllink = false
+    end
+
+    action_item do
+      button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
     end
 
     batch_action :togglepicked, :priority => 1 do |selection|
@@ -59,9 +61,12 @@ ActiveAdmin.register Stat do
     end
 
     config.per_page = 50
-    config.filters = false
+    config.sort_order = "user1_desc"
+    #config.filters = false
+    filter :player, :as => :string
 
-    index do
+    index :download_links => dllink do
+
         selectable_column
         column("player")
         column("position")
