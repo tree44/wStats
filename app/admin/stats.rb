@@ -38,6 +38,19 @@ ActiveAdmin.register Stat do
       redirect_to :back
     end
 
+    sidebar "Ftsy Scoring" do
+        h2 "Player"
+        h5 "Goal: 3; Assist: 2"
+        h5 "ppp: 1; +/-: 1"
+        h5 "pim: 0.5; shots: 0.4"
+        h2 "Goalie"
+        h5 "Win: 4; Sv: 0.2"
+        h5 "So: 2; Ga: -1"
+        h5 ""
+    end
+
+
+
     #scope :all, :default => true
     #.where clause are a bit different from sqlite3, to postgres
     # table name must be lowercase and == is now only =
@@ -89,7 +102,7 @@ ActiveAdmin.register Stat do
         column("so") if params['scope'] == 'goalie'
         
     	column("ftsy", :sortable => :user1) { |stats| stats.user1 }
-        column("ftsy2", :sortable => :user2) { |stats| number_with_precision(stats.user2, :precision => 2) }
+        column("ftsy / Gp", :sortable => :user2) { |stats| number_with_precision(stats.user2, :precision => 2) }
         default_actions
     #index do
     #  column :Player
