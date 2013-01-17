@@ -12,24 +12,35 @@ ActiveAdmin.register Stat do
       button_to "Update Stat" , { :controller => 'stats', :id => 1 }, :method => :put
     end
 
-    batch_action :togglepicked, :priority => 1 do |selection|
+    batch_action :mypick, :priority => 1 do |selection|
       Stat.find(selection).each do |stat|
         if stat.user3 == 0
             stat.user3 = 1
         else
             stat.user3 = 0
         end
-
         stat.save
-
       end
-      flash[:success] = "update picked!"
+      flash[:success] = "update my picked!"
+      redirect_to :back
+    end
+
+    batch_action :otherpick, :priority => 2 do |selection|
+      Stat.find(selection).each do |stat|
+        if stat.user3 == 0
+            stat.user3 = 2
+        else
+            stat.user3 = 0
+        end
+        stat.save
+      end
+      flash[:success] = "update other picked!"
       redirect_to :back
     end
 
     batch_action :resetpicked do |selection|
       Stat.find(selection).each do |stat|
-        if stat.user3 == 1
+        if stat.user3 == 1 || stat.user3 == 2
           stat.user3 = 0
           stat.save
         end
@@ -83,7 +94,19 @@ ActiveAdmin.register Stat do
         selectable_column
         column("player")
         column("position")
-        column("picked", :sortable => :user3) { |stats| status_tag (stats.user3 == 0 ? "available" : "picked"), (stats.user3 == 0 ? :ok : :error)}
+        column("picked", :sortable => :user3) do |stats|
+            if stats.user3 == 0
+                str = "available"
+                code = :ok
+            elsif stats.user3 == 1
+                str = "my pick"
+                code = :warning
+            else
+                str = "picked"
+                code = :error
+            end
+            status_tag str, code
+        end
         column("gp")
 
         #player only columns
