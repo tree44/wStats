@@ -127,20 +127,6 @@ ActiveAdmin.register Stat do
     	column("ftsy", :sortable => :user1) { |stats| stats.user1 }
         column("ftsy / Gp", :sortable => :user2) { |stats| number_with_precision(stats.user2, :precision => 2) }
         default_actions
-    #index do
-    #  column :Player
-    #  column :Position
-    #  column :a
-    #  column :g
-    #  column :p
-    #  column :ppp
-    #  column :pim
-    #  column :plus_minus
-    #  column :shots
-    #  column "ftsyPts", :sortable => true do |stats|
-	#	(stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)
-    #  end
-    #  default_actions
     end
 
     

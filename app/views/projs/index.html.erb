@@ -1,0 +1,43 @@
+<h1>Listing projs</h1>
+
+<table>
+  <tr>
+    <th>Rank</th>
+    <th>Player</th>
+    <th>Team</th>
+    <th>Pos</th>
+    <th>Gp</th>
+    <th>G</th>
+    <th>A</th>
+    <th>Pts</th>
+    <th>Plus minus</th>
+    <th>Pim</th>
+    <th>Ppp</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @projs.each do |proj| %>
+  <tr>
+    <td><%= proj.rank %></td>
+    <td><%= proj.player %></td>
+    <td><%= proj.team %></td>
+    <td><%= proj.pos %></td>
+    <td><%= proj.gp %></td>
+    <td><%= proj.g %></td>
+    <td><%= proj.a %></td>
+    <td><%= proj.pts %></td>
+    <td><%= proj.plus_minus %></td>
+    <td><%= proj.pim %></td>
+    <td><%= proj.ppp %></td>
+    <td><%= link_to 'Show', proj %></td>
+    <td><%= link_to 'Edit', edit_proj_path(proj) %></td>
+    <td><%= link_to 'Destroy', proj, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Proj', new_proj_path %>

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  rank: 1
+  player: MyString
+  team: MyString
+  pos: MyString
+  gp: 1
+  g: 1
+  a: 1
+  pts: 1
+  plus_minus: 1
+  pim: 1
+  ppp: 1
+
+two:
+  rank: 1
+  player: MyString
+  team: MyString
+  pos: MyString
+  gp: 1
+  g: 1
+  a: 1
+  pts: 1
+  plus_minus: 1
+  pim: 1
+  ppp: 1

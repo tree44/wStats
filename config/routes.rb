@@ -1,5 +1,8 @@
 Test7::Application.routes.draw do
 
+  resources :projs
+
+
   break if ARGV.join.include? 'assets:precompile'
   
   ActiveAdmin.routes(self)
@@ -13,7 +16,9 @@ Test7::Application.routes.draw do
   match '/signup',  to: 'stats#new'
   match '/admin/stats/', to: 'stats#update'
   match '/admin/stats/batch_action', to: 'stats#picked'
-
+  match '/admin/projs/', to: 'projs#update'
+  match '/admin/projs/batch_action', to: 'projs#picked'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

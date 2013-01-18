@@ -1,0 +1,61 @@
+<%= form_for(@proj) do |f| %>
+  <% if @proj.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@proj.errors.count, "error") %> prohibited this proj from being saved:</h2>
+
+      <ul>
+      <% @proj.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.number_field :rank %>
+  </div>
+  <div class="field">
+    <%= f.label :player %><br />
+    <%= f.text_field :player %>
+  </div>
+  <div class="field">
+    <%= f.label :team %><br />
+    <%= f.text_field :team %>
+  </div>
+  <div class="field">
+    <%= f.label :pos %><br />
+    <%= f.text_field :pos %>
+  </div>
+  <div class="field">
+    <%= f.label :gp %><br />
+    <%= f.number_field :gp %>
+  </div>
+  <div class="field">
+    <%= f.label :g %><br />
+    <%= f.number_field :g %>
+  </div>
+  <div class="field">
+    <%= f.label :a %><br />
+    <%= f.number_field :a %>
+  </div>
+  <div class="field">
+    <%= f.label :pts %><br />
+    <%= f.number_field :pts %>
+  </div>
+  <div class="field">
+    <%= f.label :plus_minus %><br />
+    <%= f.number_field :plus_minus %>
+  </div>
+  <div class="field">
+    <%= f.label :pim %><br />
+    <%= f.number_field :pim %>
+  </div>
+  <div class="field">
+    <%= f.label :ppp %><br />
+    <%= f.number_field :ppp %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
