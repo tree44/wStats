@@ -65,7 +65,7 @@ ActiveAdmin.register Stat do
     #scope :all, :default => true
     #.where clause are a bit different from sqlite3, to postgres
     # table name must be lowercase and == is now only =
-    scope :forwards, :default => true do |stats|
+    scope :players, :default => true do |stats|
         stats.where('position = ? or position = ? or position = ? or position = ?', 'C', 'LW', 'RW', 'D' )
     end
     scope :goalie do |stats|
@@ -84,7 +84,7 @@ ActiveAdmin.register Stat do
         stats.where('position = ?', 'D')
     end
 
-    config.per_page = 50
+    config.per_page = 300
     config.sort_order = "user1_desc"
     #config.filters = false
     filter :player, :as => :string
