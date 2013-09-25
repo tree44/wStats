@@ -41,11 +41,11 @@ ActiveAdmin.register Proj do
 
       selectable_column
 
-      column("picked", :sortable => :user3) do |proj|
-          if proj.user3 == 0
+      column("picked", :sortable => :user3) do |projs|
+          if projs.user3 == 0
               str = "available"
               code = :ok
-          elsif proj.user3 == 1
+          elsif projs.user3 == 1
               str = "my pick"
               code = :warning
           else
