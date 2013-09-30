@@ -1,5 +1,5 @@
 ActiveAdmin.register Stat do
-    
+
     if Rails.env.development?
       actions :index, :edit, :update, :create
       dllink = true
@@ -49,14 +49,29 @@ ActiveAdmin.register Stat do
       redirect_to :back
     end
 
+#Goals (G)   3
+#Assists (A) 2
+#Penalty Minutes (PIM)   0.5
+#Powerplay Points (PPP)  0.5
+#Shorthanded Points (SHP)    0.5
+#Game-Winning Goals (GWG)    0.5
+#Shots on Goal (SOG) 0.2
+#Hits (HIT)  0.2
+#Goaltenders Stat Category   Value
+#Wins (W)    2
+#Goals Against (GA)  0.5
+#Saves (SV)  0.2
+#Shutouts (SHO)  2
+
     sidebar "Ftsy Scoring" do
         h2 "Player"
         h5 "Goal: 3; Assist: 2"
-        h5 "ppp: 1; +/-: 1"
-        h5 "pim: 0.5; shots: 0.4"
+        h5 "ppp: 0.5; shp: 0.5"
+        h5 "pim: 0.5; shots: 0.2"
+        h5 "gwg: 0.5; hits: 0.2"
         h2 "Goalie"
-        h5 "Win: 4; Sv: 0.2"
-        h5 "So: 2; Ga: -1"
+        h5 "Win: 2; Sv: 0.2"
+        h5 "So: 2; Ga: -0.5"
         h5 ""
     end
 
@@ -110,26 +125,29 @@ ActiveAdmin.register Stat do
         column("gp")
 
         #player only columns
-    	column("g") unless params['scope'] == 'goalie' 
+    	column("g") unless params['scope'] == 'goalie'
     	column("a") unless params['scope'] == 'goalie'
     	column("p") unless params['scope'] == 'goalie'
     	column("ppp") unless params['scope'] == 'goalie'
+        column("shp") unless params['scope'] == 'goalie'
     	column("pim") unless params['scope'] == 'goalie'
-        column("+/-", :sortable => :plus_minus) { |stats| stats.plus_minus }  unless params['scope'] == 'goalie'
+        column("gwg") unless params['scope'] == 'goalie'
+        #column("+/-", :sortable => :plus_minus) { |stats| stats.plus_minus }  unless params['scope'] == 'goalie'
     	column("shots") unless params['scope'] == 'goalie'
+        column("hits") unless params['scope'] == 'goalie'
 
         #goalie only columns
         column("w") if params['scope'] == 'goalie'
         column("ga") if params['scope'] == 'goalie'
         column("sv") if params['scope'] == 'goalie'
         column("so") if params['scope'] == 'goalie'
-        
+
     	column("ftsy", :sortable => :user1) { |stats| stats.user1 }
         column("ftsy / Gp", :sortable => :user2) { |stats| number_with_precision(stats.user2, :precision => 2) }
         default_actions
     end
 
-    
+
 end
 
 

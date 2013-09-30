@@ -10,7 +10,7 @@ class StatsController < InheritedResources::Base
     #  format.json { render json: @stat }
     end
   end
-  
+
 	def update
 		# Get all selected rows
     @stats = Stat.all
@@ -20,10 +20,10 @@ class StatsController < InheritedResources::Base
       #stats.update_attribute(:user1, (util.g * 3) + (util.a * 2))
       #column("FtsyPts") { |stats| (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)}
       if stats.position == 'G'
-        stats.user1 = (stats.w * 4) + (stats.ga * -1) + (stats.sv * 0.2) + (stats.so * 2)
+        stats.user1 = (stats.w * 2) + (stats.ga * -0.5) + (stats.sv * 0.2) + (stats.so * 2)
         stats.user2 = (stats.user1.to_f / stats.gp.to_f)
       else
-        stats.user1 = (stats.g * 3) + (stats.a * 2) + (stats.plus_minus * 1) + (stats.pim * 0.5) + (stats.ppp * 1) + (stats.shots * 0.4)
+        stats.user1 = (stats.g * 3) + (stats.a * 2) + (stats.pim * 0.5) + (stats.ppp * 0.5) + (stats.shp * 0.5) + (stats.gwg * 0.5) + (stats.shots * 0.2)+ (stats.hits * 0.2)
         stats.user2 = (stats.user1.to_f / stats.gp.to_f)
       end
       stats.save
